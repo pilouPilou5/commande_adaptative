@@ -1,6 +1,6 @@
 Delta_l = [1 -0.1];
 Delta_c = [1 -0.3755];
-Z_c = [0.712 -0.2583];
+Z_c = [0.712 -0.2683];
 
 Z_p = [0.7585 -0.4552];
 Delta_p = [1 -1.0646 0.3679];
@@ -20,3 +20,10 @@ block_rho = block_rho(end);
 
 block_Z_c = squeeze(block_Z_c.data);
 block_Z_c = block_Z_c(:,end);
+
+%% check estimator
+estimator_Delta_p = squeeze(estimator_Delta_p.data);
+estimator_Delta_p = estimator_Delta_p(:,end);
+
+estimator_Z_p = squeeze(estimator_Z_p.data);
+estimator_Z_p = estimator_Z_p(:,end);
