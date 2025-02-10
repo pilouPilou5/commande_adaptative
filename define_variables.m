@@ -21,9 +21,17 @@ block_rho = block_rho(end);
 block_Z_c = squeeze(block_Z_c.data);
 block_Z_c = block_Z_c(:,end);
 
+controller = tf(block_Z_c.', block_Delta_C.', 1);
+
+figure(1)
+pzmap(controller)
+
 %% check estimator
 estimator_Delta_p = squeeze(estimator_Delta_p.data);
 estimator_Delta_p = estimator_Delta_p(:,end);
 
 estimator_Z_p = squeeze(estimator_Z_p.data);
 estimator_Z_p = estimator_Z_p(:,end);
+plant = tf(estimator_Z_p.', estimator_Delta_p.', 1);
+figure(2);
+pzmap(plant)
